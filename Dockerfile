@@ -17,9 +17,7 @@ RUN apt-get update && apt-get install -y \
 
 # Install Moses
 RUN git clone https://github.com/moses-smt/mosesdecoder.git
-RUN cd mosesdecoder && \
-    git checkout -b v3.0 v3.0 && \
-    ./bjam -j8
+RUN cd mosesdecoder && git checkout master && ./bjam -j8
 
 # Install KenLM for language model
 RUN wget -O - https://kheafield.com/code/kenlm.tar.gz | tar xz 
